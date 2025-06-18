@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+
+* {
+    font-size: 30px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator {
+    display: inline-block;
+    background-color: black;
+    padding: 40px;
+    border-radius: 30px;
+}
+
+.display {
+    color: white;
+    padding: 26px 4px 20px;
+    text-align: right;
+}
+
+.output, .input {
+    font-size: 48px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    width: 80px;
+    height: 80px;
+    padding: 6px;
+    background-color: rgb(78, 78, 78);
+    color: white;
+    border: none;
+    border-radius: 50%;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.divide {
+    width: 80px;
+    height: 80px;
+}
+
+.clear, .delete {
+    flex: 1.5;
+    background-color: rgb(187, 187, 187);
+    color: black;
+    border-radius: 10px;
+}
+
+.op {
+    background-color: rgb(231, 150, 0);
+}
