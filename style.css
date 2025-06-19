@@ -15,11 +15,13 @@ body {
     background-color: black;
     padding: 40px;
     border-radius: 30px;
+    width: 350px;
+    height: 614px;
 }
 
 .display {
     color: white;
-    padding: 26px 4px 20px;
+    padding: 30px 4px 20px;
     text-align: right;
 }
 
@@ -54,12 +56,12 @@ button {
 }
 
 .clear, .delete {
-    flex: 1.5;
+    flex: 1;
     background-color: rgb(187, 187, 187);
     color: black;
     border-radius: 10px;
 }
 
-.op {
+.op, .equals {
     background-color: rgb(231, 150, 0);
 }
