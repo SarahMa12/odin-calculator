@@ -11,6 +11,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+    if(b == 0) return "Error";
     return a / b;
 }
 
@@ -76,7 +77,7 @@ operations.forEach((op) => {
             inputDiv.textContent = "0";
         } else if(aStr != "" && opStr != "" && bStr != "") {
             ans = operate(parseFloat(aStr), parseFloat(bStr), opStr);
-            aStr = ans;
+            aStr = Math.round(ans * 10000) / 10000;
             fullStr = aStr + op.textContent;
             opStr = op.textContent;
             bStr = "";
@@ -101,14 +102,16 @@ clearDiv.addEventListener("click", () => {
 const equals = document.querySelector(".equals");
 
 equals.addEventListener("click", () => {
-    ans = operate(parseFloat(aStr), parseFloat(bStr), opStr);
-    outputDiv.textContent = fullStr + "=";
-    inputDiv.textContent = ans;
-    aStr = ans.toString();
-    bStr = "";
-    opStr = "";
-    currentNum = "a";
-    fullStr = aStr;
+    if(aStr != "" && opStr != "" && bStr != "") {
+        ans = operate(parseFloat(aStr), parseFloat(bStr), opStr);
+        outputDiv.textContent = fullStr + "=";
+        inputDiv.textContent = Math.round(ans * 10000) / 10000;
+        aStr = (Math.round(ans * 10000) / 10000).toString();
+        bStr = "";
+        opStr = "";
+        currentNum = "a";
+        fullStr = aStr;
+    }
 });
 
 const del = document.querySelector(".delete");
