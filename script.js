@@ -75,7 +75,7 @@ operations.forEach((op) => {
             currentNum = "b";
             inputDiv.textContent = "0";
         } else if(aStr != "" && opStr != "" && bStr != "") {
-            ans = operate(parseInt(aStr), parseInt(bStr), opStr);
+            ans = operate(parseFloat(aStr), parseFloat(bStr), opStr);
             aStr = ans;
             fullStr = aStr + op.textContent;
             opStr = op.textContent;
@@ -101,7 +101,7 @@ clearDiv.addEventListener("click", () => {
 const equals = document.querySelector(".equals");
 
 equals.addEventListener("click", () => {
-    ans = operate(parseInt(aStr), parseInt(bStr), opStr);
+    ans = operate(parseFloat(aStr), parseFloat(bStr), opStr);
     outputDiv.textContent = fullStr + "=";
     inputDiv.textContent = ans;
     aStr = ans.toString();
@@ -128,5 +128,42 @@ del.addEventListener("click", () => {
         if(bStr.length == 0) {
             inputDiv.textContent = "0";
         }
+    }
+});
+
+
+const dot = document.querySelector(".dot");
+
+dot.addEventListener("click", () => {
+    if(currentNum == "a" && !aStr.includes(".")) {
+        aStr += ".";
+        fullStr += ".";
+        inputDiv.textContent = aStr;
+    } else if(currentNum == "b" && !bStr.includes(".")) {
+        bStr += ".";
+        fullStr += ".";
+        inputDiv.textContent = bStr;
+    }
+});
+
+const sign = document.querySelector(".sign");
+
+sign.addEventListener("click", () => {
+    if(currentNum == "a") {
+        if(!aStr.startsWith("-")) {
+            aStr = "-" + aStr;
+        } else {
+            aStr = aStr.slice(1);
+        }
+        fullStr = aStr;
+        inputDiv.textContent = aStr;
+    } else if(currentNum == "b") {
+        if(!bStr.startsWith("-")) {
+            bStr = "-" + bStr;
+        } else {
+            bStr = bStr.slice(1);
+        }
+        fullStr = aStr + opStr + bStr;
+        inputDiv.textContent = bStr;
     }
 });
